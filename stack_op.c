@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-#include "../libft/libft.h"
+#include <stdio.h>
+#include ".\libft\libft.h"
 
 void	push(t_list **stack, int value)
 {
@@ -28,6 +28,17 @@ void	push(t_list **stack, int value)
 			return;
 		}
 	    ft_lstadd_front(stack, new_node);
+}
+void    pop(t_list **head)
+{
+    t_list *temp;
+
+    if (*head == NULL)
+        return;
+    temp = *head;
+
+    *head = (*head)->next;
+    free(temp);
 }
 void printStack(t_list **stack)
 {
@@ -51,6 +62,7 @@ int main()
     push(&stack, 30);
     push(&stack, 40);
     push(&stack, 50);
+    pop(&stack);
     printf("Stack: ");
     printStack(&stack);
 }
