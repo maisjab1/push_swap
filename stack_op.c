@@ -6,7 +6,7 @@
 /*   By: mjabarin <mjabarin@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 15:52:07 by mjabarin          #+#    #+#             */
-/*   Updated: 2026/01/12 16:25:21 by mjabarin         ###   ########.fr       */
+/*   Updated: 2026/01/12 16:59:08 by mjabarin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 void	push(t_list **stack, int value)
 {
-		t_list *new_node;
+		t_list	*new_node;
 		int	*num;
 		num = malloc(sizeof(int));
 		if (!num)
@@ -34,7 +34,7 @@ void printStack(t_list **stack)
     t_list *temp = *stack;
     while (temp != NULL)
     {
-        printf("%d-> ", temp->content);
+        printf("%d-> ",*(int *) temp->content);
         temp = temp->next;
     }
     printf("\n");
