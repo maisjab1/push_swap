@@ -11,8 +11,20 @@
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include ".\libft\libft.h"
+#include "push_swap.h"
 
+t_list **create_stack(t_list **stack,int argc, char **argv)
+{
+    int i;
+
+    i = argc - 1;
+    while (i > 0)
+    {
+        push(stack, atoi(argv[i]));
+        i--;
+    }
+    return (stack);
+}
 void	push(t_list **stack, int value)
 {
 		t_list	*new_node;
@@ -55,24 +67,15 @@ int main(int argc, char **argv)
 {
     // Initialize a new stack top pointer
     t_list *stack = NULL;
-    int i;
+    create_stack(&stack,argc,argv);
+  
+     //pop(&stack);
+    
 
-    i = argc - 1;
-    while (i > 0)
-    {
-        push(&stack, atoi(argv[i]));
-        i--;
-    }
-    /* Push elements into the stack
-    push(&stack, 10);
-    push(&stack, 20);
-    push(&stack, 30);
-    push(&stack, 40);
-    push(&stack, 50);
-    pop(&stack);*/
-    printf("\033[0;35m");   //purple color
+    printf("\033[0;35m");   //purple color 
     printf("Stack:\n ");
     printf("\033[0m");     //black color
+
     printStack(&stack);
     return 0;
 }
