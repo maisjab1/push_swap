@@ -45,24 +45,34 @@ void printStack(t_list **stack)
     t_list *temp = *stack;
     while (temp != NULL)
     {
-        printf("%d-> ",*(int *) temp->content);
+        printf("%d\n ",*(int *) temp->content);
         temp = temp->next;
     }
     printf("\n");
 }
 
-int main()
+int main(int argc, char **argv)
 {
     // Initialize a new stack top pointer
     t_list *stack = NULL;
+    int i;
 
-    // Push elements into the stack
+    i = argc - 1;
+    while (i > 0)
+    {
+        push(&stack, atoi(argv[i]));
+        i--;
+    }
+    /* Push elements into the stack
     push(&stack, 10);
     push(&stack, 20);
     push(&stack, 30);
     push(&stack, 40);
     push(&stack, 50);
-    pop(&stack);
-    printf("Stack: ");
+    pop(&stack);*/
+    printf("\033[0;35m");   //purple color
+    printf("Stack:\n ");
+    printf("\033[0m");     //black color
     printStack(&stack);
+    return 0;
 }
