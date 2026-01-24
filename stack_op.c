@@ -6,7 +6,7 @@
 /*   By: mjabarin <mjabarin@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 15:52:07 by mjabarin          #+#    #+#             */
-/*   Updated: 2026/01/12 16:59:08 by mjabarin         ###   ########.fr       */
+/*   Updated: 2026/01/24 17:14:40 by mjabarin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void printStack(t_list **stack)
     t_list *temp = *stack;
     while (temp != NULL)
     {
-        printf("%d\n ",*(int *) temp->content);
+        printf("%d\n ", *(int*)temp->content);
         temp = temp->next;
     }
     printf("\n");
@@ -66,16 +66,59 @@ void printStack(t_list **stack)
 int main(int argc, char **argv)
 {
     // Initialize a new stack top pointer
-    t_list *stack = NULL;
-    create_stack(&stack,argc,argv);
-  
+    t_list *stack_a = NULL;
+    t_list *stack_b = NULL;
+    create_stack(&stack_a,argc,argv);
+
+    printf("\033[0;35m");   //purple color 
+    printf("Stack a :\n ");
+    printf("\033[0m");     //black color
+    printStack(&stack_a);
+
      //pop(&stack);
+     pb(&stack_b,&stack_a);
     
 
     printf("\033[0;35m");   //purple color 
-    printf("Stack:\n ");
+    printf("Stack a :\n ");
     printf("\033[0m");     //black color
 
-    printStack(&stack);
+    printStack(&stack_a);
+    printf("\033[0;32m"); // Green
+    printf("Stack b :\n ");
+    printf("\033[0m");     //black color
+
+
+    printStack(&stack_b);
+    pb(&stack_b,&stack_a);
+
+
+    printf("\033[0;35m");   //purple color
+    printf("Stack a :\n ");
+    printf("\033[0m");     //black color
+
+    printStack(&stack_a);
+    printf("\033[0;32m"); // Green
+    printf("Stack b :\n ");
+    printf("\033[0m");     //black color
+
+
+    printStack(&stack_b);
+
+    pa(&stack_a,&stack_b);
+
+
+    printf("\033[0;35m");   //purple color
+    printf("Stack a :\n ");
+    printf("\033[0m");     //black color
+
+    printStack(&stack_a);
+    printf("\033[0;32m"); // Green
+    printf("Stack b :\n ");
+    printf("\033[0m");     //black color
+
+
+    printStack(&stack_b);
+
     return 0;
 }
