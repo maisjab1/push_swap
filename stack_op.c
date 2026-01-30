@@ -20,7 +20,7 @@ t_list **create_stack(t_list **stack,int argc, char **argv)
     i = argc - 1;
     while (i > 0)
     {
-        push(stack, (int)ft_atol(argv[i]));
+        push(stack, (int)ft_atoi(argv[i]));
         i--;
     }
     return (stack);

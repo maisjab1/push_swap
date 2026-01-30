@@ -38,7 +38,7 @@ int is_duplicate(char **argv)
         j = i + 1;
         while (argv[j])
         {
-            if (ft_atol(argv[i]) == ft_atol(argv[j]))
+            if (ft_atoi(argv[i]) == ft_atoi(argv[j]))
                 return (1);
             j++;
         }
@@ -81,7 +81,7 @@ void checker(int argc, char **argv)
             ft_putendl_fd("Error: Non-numeric value detected.", 1);
             exit(1);
         } 
-        n = ft_atol(args[i]);
+        n = ft_atoi(args[i]);
         printf("Converted number: %ld\n", n); // Debugging line 
         if (n >  2147483647 || n < -2147483648)
         {
