@@ -11,6 +11,23 @@
 /* ************************************************************************** */
 #include "push_swap.h"
 
+void	push(t_list **stack, int value)
+{
+		t_list	*new_node;
+		int	*num;
+		num = malloc(sizeof(int));
+		if (!num)
+			return;
+		*num = value;
+		new_node = ft_lstnew(num);
+		if (!new_node)
+		{
+			free (num);
+			return;
+		}
+	    ft_lstadd_front(stack, new_node);
+}
+
 void	pa(t_list **a, t_list **b)
 {
 	if (!b || !*b)

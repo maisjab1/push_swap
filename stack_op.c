@@ -20,27 +20,12 @@ t_list **create_stack(t_list **stack,int argc, char **argv)
     i = argc - 1;
     while (i > 0)
     {
-        push(stack, atoi(argv[i]));
+        push(stack, (int)ft_atoi(argv[i]));
         i--;
     }
     return (stack);
 }
-void	push(t_list **stack, int value)
-{
-		t_list	*new_node;
-		int	*num;
-		num = malloc(sizeof(int));
-		if (!num)
-			return;
-		*num = value;
-		new_node = ft_lstnew(num);
-		if (!new_node)
-		{
-			free (num);
-			return;
-		}
-	    ft_lstadd_front(stack, new_node);
-}
+
 void    pop(t_list **head)
 {
     t_list *temp;
@@ -50,6 +35,8 @@ void    pop(t_list **head)
     temp = *head;
 
     *head = (*head)->next;
+    if (temp->content)
+        free(temp->content);
     free(temp);
 }
 void printStack(t_list **stack)
@@ -68,6 +55,13 @@ int main(int argc, char **argv)
     // Initialize a new stack top pointer
     t_list *stack_a = NULL;
     t_list *stack_b = NULL;
+    if (argc < 2)
+    {
+        ft_putendl_fd("Error", 1);
+        return 0;
+    }
+        
+    checker(argc,argv);
     create_stack(&stack_a,argc,argv);
 
     printf("\033[0;35m");   //purple color 
@@ -75,7 +69,8 @@ int main(int argc, char **argv)
     printf("\033[0m");     //black color
     printStack(&stack_a);
 
-     //pop(&stack);
+
+     /*pop(&stack);
      pb(&stack_b,&stack_a);
     
 
@@ -120,5 +115,5 @@ int main(int argc, char **argv)
 
     printStack(&stack_b);
 
-    return 0;
+    return 0;*/
 }
