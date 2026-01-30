@@ -78,14 +78,13 @@ void checker(int argc, char **argv)
     {
         if (!ft_isnum(args[i]))
         {
-            ft_putendl_fd("Error: Non-numeric value detected.", 1);
+            ft_putendl_fd("Error", 1);
             exit(1);
         } 
         n = ft_atoi(args[i]);
-        printf("Converted number: %ld\n", n); // Debugging line 
         if (n >  2147483647 || n < -2147483648)
         {
-            ft_putendl_fd("Error: Integer overflow/underflow detected.", 1);
+            ft_putendl_fd("Error", 1);
             exit(1);
         }
         i++;
@@ -93,7 +92,7 @@ void checker(int argc, char **argv)
 
     if (is_duplicate(argv))
     {
-        ft_putendl_fd("Error: Duplicate values found.", 1);
+        ft_putendl_fd("Error", 1);
         exit(1);
     }
 }
