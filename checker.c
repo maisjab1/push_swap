@@ -68,7 +68,7 @@ int ft_isnum(char *num)
 void checker(int argc, char **argv)
 {
     int i;
-    long n;
+    long long n; // modified to long long to handle larger numbers
     char **args;
     
     (void)argc;
@@ -82,7 +82,7 @@ void checker(int argc, char **argv)
             exit(1);
         } 
         n = ft_atoi(args[i]);
-        if (n >  2147483647 || n < -2147483648)
+        if (n >  2147483647 || n < -2147483648) 
         {
             ft_putendl_fd("Error", 1);
             exit(1);
