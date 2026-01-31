@@ -6,7 +6,7 @@
 /*   By: mjabarin <mjabarin@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 15:52:07 by mjabarin          #+#    #+#             */
-/*   Updated: 2026/01/24 17:14:40 by mjabarin         ###   ########.fr       */
+/*   Updated: 2026/01/31 12:50:14 by mjabarin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int main(int argc, char **argv)
 {
     // Initialize a new stack top pointer
     t_list *stack_a = NULL;
-    t_list *stack_b = NULL;
+  //  t_list *stack_b = NULL;
     if (argc < 2)
     {
         ft_putendl_fd("Error", 1);
