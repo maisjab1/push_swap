@@ -69,8 +69,8 @@ int main(int argc, char **argv)
     printf("\033[0m");     //black color
     printStack(&stack_a);
 
-
-     /*pop(&stack);
+    /*
+     pop(&stack_a);
      pb(&stack_b,&stack_a);
     
 
