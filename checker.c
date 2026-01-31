@@ -1,32 +1,5 @@
 #include "push_swap.h"
-#include <stdio.h>
-long long	ft_atol(const char *nptr)
-{
-	long long	res;
-	int			sign;
-	int			i;
 
-	res = 0;
-	sign = 1;
-	i = 0;
-	while ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == 32)
-		i++;
-	if (nptr[i] == '+' || nptr[i] == '-')
-	{
-		if (nptr[i] == '-')
-			sign = -1;
-		i++;
-	}
-	while (nptr[i] >= '0' && nptr[i] <= '9')
-	{
-		res = res * 10 + (nptr[i] - '0');
-		// Catch overflow early
-		if (res * sign > 2147483647LL || res * sign < -2147483648LL)
-			return (2147483649LL); // Return value outside INT range
-		i++;
-	}
-	return (res * sign);
-}
 int is_duplicate(char **argv)
 {
     int i;
@@ -68,7 +41,7 @@ int ft_isnum(char *num)
 void checker(int argc, char **argv)
 {
     int i;
-    long long n; // modified to long long to handle larger numbers
+   long  long n; // modified to long long to handle larger numbers
     char **args;
     
     (void)argc;
