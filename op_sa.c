@@ -1,9 +1,10 @@
 #include "push_swap.h"
+
 void sa(t_list **a) // swap the first two elements of stack a
 {
     if (!a || !*a || !(*a) -> next)
         return;
-    t_list *temp;
+    void 	*temp;
 
     temp = (*a) -> content;
     (*a) -> content = (*a) -> next -> content;
