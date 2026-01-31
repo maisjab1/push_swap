@@ -2,15 +2,16 @@
 
 void rb(t_list **b) // rotate stack b upwards
 {
-    t_list *first;
+	t_list *first;
+        t_list *last;
 
     if (!b || !*b)
-        return ;
+        return;
     first = *b;
     (*b) = (*b) -> next;
-    while ((*b) -> next)
-        (*b) = (*b) -> next;
-    (*b) -> next = first;
+    last = ft_lstlast(*b);
+    last -> next = first;
     first -> next = NULL;
     write(1, "rb\n", 3);
+
 }
