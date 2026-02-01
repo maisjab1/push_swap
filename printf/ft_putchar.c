@@ -1,30 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   op_rrb.c                                           :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nibrahee <nibrahee@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/31 14:48:39 by nibrahee          #+#    #+#             */
-/*   Updated: 2026/01/31 14:49:52 by nibrahee         ###   ########.fr       */
+/*   Created: 2025/12/29 10:39:32 by nibrahee          #+#    #+#             */
+/*   Updated: 2026/01/03 12:24:55 by nibrahee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "ft_printf.h"
 
-void	rrb(t_list **b) // rotate stack b downwards
+int	ft_putchar(int c)
 {
-	t_list *prev;
-	t_list *last;
-
-	if (!b || !*b || !(*b)->next)
-		return;
-	prev = *b;
-	while (prev->next->next)
-		prev = prev->next;
-	last = prev->next;
-	prev->next = NULL;
-	last->next = *b;
-	*b = last;
-	write(1, "rrb\n", 4);
+	return (write(1, &c, 1));
 }
