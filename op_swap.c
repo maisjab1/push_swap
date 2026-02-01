@@ -12,9 +12,9 @@
 
 #include "push_swap.h"
 
-void	swap(t_list **stack) // swap the first two elements of stack a
+void	swap(t_stack **stack) // swap the first two elements of stack a
 {
-	void	*temp;
+	int	temp;
 
 	if (!stack || !*stack || !(*stack) -> next)
 		return;
@@ -23,19 +23,19 @@ void	swap(t_list **stack) // swap the first two elements of stack a
 	(*stack) -> next -> content = temp;
 }
 
-void	sa(t_list **a)
+void	sa(t_stack **a)
 {
 	swap(a);
 	ft_printf("sa\n");
 }
 
-void    sb(t_list **b)
+void    sb(t_stack **b)
 {
 	swap(b);
 	ft_printf("sb\n");
 }
 
-void	ss(t_list **a, t_list **b)
+void	ss(t_stack **a, t_stack **b)
 {
 	swap(a);
 	swap(b);

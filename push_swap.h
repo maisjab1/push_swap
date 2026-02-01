@@ -1,27 +1,35 @@
 #include "./libft/libft.h"
 #include "./printf/ft_printf.h"
-//#include ".\printf\ft_printf.h" for windows
-//#include ".\libft\libft.h"//for windows
- 
 
-t_list **create_stack(t_list **stack,int argc, char **argv);
-void	push(t_list **stack, int value);
-void    pop(t_list **head);
-void printStack(t_list **stack);
+//#include ".\printf\ft_printf.h" //for windows
+//#include ".\libft\libft.h" //for windows
+ typedef struct s_stack
+{
+    int             content;
+    int             index;
+    struct s_stack  *next;
+}   t_stack;
+
+
+
+t_stack **create_stack(t_stack **stack,int argc, char **argv);
+void	push(t_stack **stack, int value);
+void    pop(t_stack **head);
+void printStack(t_stack **stack);
 
 /********************* operations ***************************/
 
-void    pa(t_list **a, t_list **b);
-void    pb(t_list **b, t_list **a);
-void    sa(t_list **a);
-void    sb(t_list **b);
-void    ra(t_list **a);
-void    rb(t_list **b);
-void    rra(t_list **a);
-void    rrb(t_list **b);
-void    ss(t_list **a, t_list **b);
-void    rr(t_list **a, t_list **b);
-void    rrr(t_list **a, t_list **b);
+void    pa(t_stack **a, t_stack **b);
+void    pb(t_stack **b, t_stack **a);
+void    sa(t_stack **a);
+void    sb(t_stack **b);
+void    ra(t_stack **a);
+void    rb(t_stack **b);
+void    rra(t_stack **a);
+void    rrb(t_stack **b);
+void    ss(t_stack **a, t_stack **b);
+void    rr(t_stack **a, t_stack **b);
+void    rrr(t_stack **a, t_stack **b);
 
 /********************* utils ***************************/
 

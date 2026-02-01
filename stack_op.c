@@ -13,7 +13,7 @@
 #include <stdio.h>
 #include "push_swap.h"
 
-t_list **create_stack(t_list **stack,int argc, char **argv)
+t_stack **create_stack(t_stack **stack,int argc, char **argv)
 {
     int i;
 
@@ -25,26 +25,38 @@ t_list **create_stack(t_list **stack,int argc, char **argv)
     }
     return (stack);
 }
-
-void    pop(t_list **head)
+void set_index(t_stack *stack)
 {
-    t_list *temp;
+    int index;
+    t_stack *current;
+
+    index = 0;
+    current = stack;
+    while (current)
+    {
+        current->index = index++;
+        current = current->next;
+    }
+}
+
+void    pop(t_stack **head)
+{
+    t_stack *temp;
 
     if (*head == NULL)
         return;
     temp = *head;
 
     *head = (*head)->next;
-    if (temp->content)
-        free(temp->content);
+
     free(temp);
 }
-void printStack(t_list **stack)
+void printStack(t_stack **stack)
 {
-    t_list *temp = *stack;
+    t_stack *temp = *stack;
     while (temp != NULL)
     {
-        printf("%d\n ", *(int*)temp->content);
+        printf("Pos: [%d] | Value: %d\n", temp->index,temp->content);
         temp = temp->next;
     }
     printf("\n");
@@ -53,8 +65,8 @@ void printStack(t_list **stack)
 int main(int argc, char **argv)
 {
     // Initialize a new stack top pointer
-    t_list *stack_a = NULL;
-    t_list *stack_b = NULL;
+    t_stack *stack_a = NULL;
+    t_stack *stack_b = NULL;
     if (argc < 2)
     {
         ft_putendl_fd("Error", 1);
@@ -63,11 +75,14 @@ int main(int argc, char **argv)
         
     checker(argc,argv);
     create_stack(&stack_a,argc,argv);
+    set_index(stack_a);
+
 
     printf("\033[0;35m");   //purple color 
     printf("Stack a :\n ");
     printf("\033[0m");     //black color
     printStack(&stack_a);
+    /*
     rra(&stack_a);
     printf("\033[0;35m");   //purple color 
     printf("Stack a :\n ");
@@ -75,7 +90,7 @@ int main(int argc, char **argv)
 
 
     printf("\033[0m");
-    /*
+    
      pop(&stack_a);
      pb(&stack_b,&stack_a);
     

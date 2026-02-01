@@ -12,33 +12,33 @@
 
 #include "push_swap.h"
 
-void	rotate(t_list **stack)
+void	rotate(t_stack **stack)
 {
-	t_list *first;
-	t_list *last;
+	t_stack *first;
+	t_stack *last;
 
 	if (!stack || !*stack)
 		return ;
 	first = *stack;
 	(*stack) = (*stack) -> next;
-	last = ft_lstlast(*stack);
+	last = (t_stack *)ft_lstlast((t_list *)*stack);
 	last -> next = first;
 	first -> next = NULL;
 }
 
-void	ra(t_list **a)
+void	ra(t_stack **a)
 {
 	rotate(a);
 	ft_printf("ra\n");
 }
 
-void	rb(t_list **b)
+void	rb(t_stack **b)
 {
 	rotate(b);
 	ft_printf("rb\n");
 }
 
-void	rr(t_list **a, t_list **b)
+void	rr(t_stack **a, t_stack **b)
 {
 	rotate(a);
 	rotate(b);

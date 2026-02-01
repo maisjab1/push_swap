@@ -12,10 +12,10 @@
 
 #include "push_swap.h"
 
-void	reverse_rotate(t_list **stack) // rotate stack a downwards
+void	reverse_rotate(t_stack **stack) // rotate stack a downwards
 {
-	t_list	*prev;
-	t_list	*last;
+	t_stack	*prev;
+	t_stack	*last;
 
 	if (!stack || !*stack || !(*stack)->next)
 		return;
@@ -28,19 +28,19 @@ void	reverse_rotate(t_list **stack) // rotate stack a downwards
 	*stack = last;
 }
 
-void	rra(t_list **a)
+void	rra(t_stack **a)
 {
 	reverse_rotate(a);
 	ft_printf("rra\n");
 }
 
-void	rrb(t_list **b)
+void	rrb(t_stack **b)
 {
 	reverse_rotate(b);
 	ft_printf("rrb\n");
 }
 
-void	rrr(t_list **a, t_list **b)
+void	rrr(t_stack **a, t_stack **b)
 {
 	reverse_rotate(a);
 	reverse_rotate(b);
