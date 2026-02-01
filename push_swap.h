@@ -1,6 +1,8 @@
 #include "./libft/libft.h"
-//#include ".\libft\libft.h"//for windows 
-
+#include "./printf/ft_printf.h"
+//#include ".\printf\ft_printf.h" for windows
+//#include ".\libft\libft.h"//for windows
+ 
 
 t_list **create_stack(t_list **stack,int argc, char **argv);
 void	push(t_list **stack, int value);

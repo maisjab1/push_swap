@@ -1,30 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   op_rra.c                                           :+:      :+:    :+:   */
+/*   op_rotate.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nibrahee <nibrahee@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/31 14:50:15 by nibrahee          #+#    #+#             */
-/*   Updated: 2026/01/31 14:51:38 by nibrahee         ###   ########.fr       */
+/*   Created: 2026/02/01 13:36:59 by nibrahee          #+#    #+#             */
+/*   Updated: 2026/02/01 13:41:36 by nibrahee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rra(t_list **a) // rotate stack a downwards
+void	rotate(t_list **stack)
 {
-	t_list	*prev;
-	t_list	*last;
+	t_list *first;
+	t_list *last;
 
-	if (!a || !*a || !(*a)->next)
-		return;
-	prev = *a;
-	while (prev->next->next)
-		prev = prev->next;
-	last = prev->next;
-	prev->next = NULL;
-	last->next = *a;
-	*a = last;
-	write(1, "rra\n", 4);
+	if (!stack || !*stack)
+		return ;
+	first = *stack;
+	(*stack) = (*stack) -> next;
+	last = ft_lstlast(*stack);
+	last -> next = first;
+	first -> next = NULL;
+}
+
+void	ra(t_list **a)
+{
+	rotate(a);
+	ft_printf("ra\n");
+}
+
+void	rb(t_list **b)
+{
+	rotate(b);
+	ft_printf("rb\n");
+}
+
+void	rr(t_list **a, t_list **b)
+{
+	rotate(a);
+	rotate(b);
+	ft_printf("rr\n");
 }
