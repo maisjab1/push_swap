@@ -26,6 +26,7 @@ void	rotate(t_stack *stack)
 	last -> next = first;
 	first -> prev = last;
 	first -> next = NULL;
+	stack -> bottom = first; 
 }
 
 void	ra(t_stack *a)

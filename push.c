@@ -9,7 +9,6 @@
 /*   Updated: 2026/02/01 13:21:00 by nibrahee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "push_swap.h"
 
 void    push(t_stack *stack, t_node *node)
@@ -36,28 +35,32 @@ void    push(t_stack *stack, t_node *node)
 
 void	pa(t_stack *a, t_stack *b)
 {
+	t_node	*node;
+
 	if (!a || !b )
 		return;
-	push(a ,b -> top);
+	node = pop(b);
+	push(a, node);
 	ft_printf("pa\n");
-	pop(b);
 }
 
 void	pb(t_stack *b, t_stack *a)
 {
+	t_node	*node;
+
 	if (!a || !b)
 		return;
-	push(b,a -> top);
+	node = pop(a);
+	push(b, node);
 	ft_printf("pb\n");
-	pop(a);
 }
 
-void	pop(t_stack *stack)
+t_node	*pop(t_stack *stack)
 {
 	t_node	*temp;
 
 	if (!stack || stack -> size == 0)
-		return ;
+		return NULL;
 	temp = stack -> top;
 	stack -> top = stack -> top -> next;
 	if (stack -> top)
@@ -66,6 +69,6 @@ void	pop(t_stack *stack)
 		stack -> bottom = NULL;
 	temp -> next = NULL;
 	temp -> prev = NULL;
-	free (temp);
 	stack -> size--;
+	return (temp);
 }
