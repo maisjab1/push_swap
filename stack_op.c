@@ -81,7 +81,8 @@ int main(int argc, char **argv)
     printf("Stack a before sorting :\n ");
     printStack(&stack_a);
     printf("\033[0m");
-    radix_sort(stack_a, stack_b);
+    if (!is_sorted(stack_a))
+        radix_sort(stack_a, stack_b);
     printf("\033[0;32m"); // Green
     printf("Stack a after sorting :\n ");
     printStack(&stack_a);
