@@ -21,12 +21,14 @@ void    init_stack(t_stack *stack)
     stack -> size = 0;
 }
 
-t_stack *create_stack(t_stack *stack, int argc, char **argv)
+t_stack *create_stack(int argc, char **argv)
 {
     int i;
     t_stack *stack;
 
-    stack = (t_stack *)malloc(sizeof(t_stack));
+    stack = malloc(sizeof(t_stack));
+    if (!stack)
+        return (NULL);
     init_stack(stack);
     i = argc - 1;
     while (i > 0)
