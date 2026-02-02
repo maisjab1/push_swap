@@ -46,5 +46,6 @@ void checker(int argc, char **argv);
 int is_duplicate(char **argv);
 long long  ft_atol(const char *nptr);
 void radix_sort(t_stack *stack_a, t_stack *stack_b);
+int is_sorted(t_stack *stack);
 
 #endif
