@@ -38,14 +38,14 @@ int ft_isnum(char *num)
     return (1);
 }
 
-void checker(int argc, char **argv)
+void checker(int argc, char **argv, int start_index)
 {
     int i;
    long  long n; // modified to long long to handle larger numbers
     char **args;
     
     (void)argc;
-    i = 1;
+    i = start_index;
     args = argv;
     while(args[i])
     {
