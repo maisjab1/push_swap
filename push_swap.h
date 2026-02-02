@@ -19,13 +19,20 @@ typedef struct  s_stack{
     int     size;
 }   t_stack;
 
-t_stack *create_stack(int argc, char **argv);
+typedef struct  s_config{
+   int benchmark;
+   int stategy;
+}   t_config;
+
+t_stack *create_stack(int argc, char **argv,int start_index);
 t_node  *create_node(int value);
 void    init_stack(t_stack *stack);
 void	push(t_stack *stack, t_node *node);
 t_node	*pop(t_stack *head);
 void printStack(t_stack **stack);
 void get_index(t_stack *stack);
+int parse_flags(int argc, char **argv, t_config *config);
+
 /********************* operations ***************************/
 
 void    pa(t_stack *a, t_stack *b);
@@ -42,7 +49,7 @@ void    rrr(t_stack *a, t_stack *b);
 
 /********************* utils ***************************/
 
-void checker(int argc, char **argv);
+void checker(int argc, char **argv, int start_index);
 int is_duplicate(char **argv);
 long long  ft_atol(const char *nptr);
 void radix_sort(t_stack *stack_a, t_stack *stack_b);

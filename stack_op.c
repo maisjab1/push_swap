@@ -72,11 +72,23 @@ int main(int argc, char **argv)
 {
     t_stack *stack_a;
     t_stack *stack_b;
-    checker(argc, argv);
-    stack_a = create_stack(argc, argv);
+    t_config config;
+    int start_index;
+    if (argc < 2)
+        return (0);
+    start_index = parse_flags(argc, argv, &config);
+
+    checker(argc, argv, start_index);
+    stack_a = create_stack(argc, argv, start_index);
     stack_b = malloc(sizeof(t_stack));
+    if(!stack_b)
+        return (1);
     init_stack(stack_b);
     get_index(stack_a);
+
+    if (config.benchmark)
+        printf("[bench] Disorder: %f%%\n", 0.0);
+
     printf("\033[0;35m");   //purple color
     printf("Stack a before sorting :\n ");
     printStack(&stack_a);
