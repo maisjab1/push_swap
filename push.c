@@ -9,36 +9,63 @@
 /*   Updated: 2026/02/01 13:21:00 by nibrahee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "push_swap.h"
 
-void	push(t_stack **stack, int content)
+void    push(t_stack *stack, t_node *node)
 {
-	t_stack	*new_node;
-	
-	new_node = malloc(sizeof(t_stack));
-	if (!new_node)
-		return;
-	new_node->content = content;
-	new_node->index = -1; // Initialize with -1
-	new_node->next = *stack;
-	*stack = new_node;
+    if (!stack || !node)
+		return ;
+	if (stack -> size == 0)
+	{
+		stack -> top = node;
+		stack -> bottom = node;
+		node -> next = NULL;
+		node -> prev = NULL;
+		stack -> size++;
+	}
+	else
+	{
+		node -> next = stack -> top;
+		stack -> top -> prev = node;
+		stack -> top = node;
+		stack -> size++;
+		stack -> top -> prev = NULL;
+	}
 }
 
-void	pa(t_stack **a, t_stack **b)
+void	pa(t_stack *a, t_stack *b)
 {
-	if (!b || !*b)
+	if (!a || !b )
 		return;
-
-	push(a ,(*b)->content);
+	push(a ,b -> top);
 	ft_printf("pa\n");
 	pop(b);
 }
-void	pb(t_stack **b, t_stack **a)
 
+void	pb(t_stack *b, t_stack *a)
 {
-	if (!a || !*a)
+	if (!a || !b)
 		return;
-	push(b,(*a)->content);
+	push(b,a -> top);
 	ft_printf("pb\n");
 	pop(a);
+}
+
+void	pop(t_stack *stack)
+{
+	t_node	*temp;
+
+	if (!stack || stack -> size == 0)
+		return ;
+	temp = stack -> top;
+	stack -> top = stack -> top -> next;
+	if (stack -> top)
+		stack -> top -> prev = NULL;
+	else
+		stack -> bottom = NULL;
+	temp -> next = NULL;
+	temp -> prev = NULL;
+	free (temp);
+	stack -> size--;
 }
