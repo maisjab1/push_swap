@@ -12,7 +12,7 @@
 
 #include <stdio.h>
 #include "push_swap.h"
-
+/* 
 t_stack **create_stack(t_stack **stack,int argc, char **argv)
 {
     int i;
@@ -39,49 +39,56 @@ void set_index(t_stack *stack)
     }
 }
 
-void    pop(t_stack **head)
+void    pop(t_stack *head)
 {
-    t_stack *temp;
+    t_node	*temp;
 
-    if (*head == NULL)
-        return;
-    temp = *head;
-
-    *head = (*head)->next;
-
+    if (!head || head -> size == 0)
+        return ;
+    temp = head -> top;
+    head -> top = head -> top -> next;
+    if (head -> top)
+        head -> top -> prev = NULL;
+    else
+        head -> bottom = NULL;
     free(temp);
-}
+    head -> size--;
+}*/
 void printStack(t_stack **stack)
 {
-    t_stack *temp = *stack;
-    while (temp != NULL)
+    t_node *current;
+
+    if (!stack || !*stack)
+        return ;
+    current = (*stack)->top;
+    while (current)
     {
-        printf("Pos: [%d] | Value: %d\n", temp->index,temp->content);
-        temp = temp->next;
+        printf("Value: %d, Index: %d\n", current->value, current->index);
+        current = current->next;
     }
-    printf("\n");
 }
 
 int main(int argc, char **argv)
 {
-    // Initialize a new stack top pointer
-    t_stack *stack_a = NULL;
-    t_stack *stack_b = NULL;
-    if (argc < 2)
-    {
-        ft_putendl_fd("Error", 1);
-        return 0;
-    }
-        
-    checker(argc,argv);
-    create_stack(&stack_a,argc,argv);
-    set_index(stack_a);
-
-
-    printf("\033[0;35m");   //purple color 
-    printf("Stack a :\n ");
-    printf("\033[0m");     //black color
+    t_stack *stack_a;
+    t_stack *stack_b;
+    checker(argc, argv);
+    stack_a = create_stack(argc, argv);
+    stack_b = malloc(sizeof(t_stack));
+    init_stack(stack_b);
+    get_index(stack_a);
+    printf("\033[0;35m");   //purple color
+    printf("Stack a before sorting :\n ");
     printStack(&stack_a);
+    printf("\033[0m");
+    radix_sort(stack_a, stack_b);
+    printf("\033[0;32m"); // Green
+    printf("Stack a after sorting :\n ");
+    printStack(&stack_a);
+    printf("\033[0m");
+    return 0;
+}
+
     /*
     rra(&stack_a);
     printf("\033[0;35m");   //purple color 
@@ -136,5 +143,6 @@ int main(int argc, char **argv)
 
     printStack(&stack_b);
 
-    return 0;*/
+    return 0;
 }
+*/
