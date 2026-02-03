@@ -6,7 +6,7 @@
 /*   By: mjabarin <mjabarin@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 15:52:07 by mjabarin          #+#    #+#             */
-/*   Updated: 2026/01/31 14:40:02 by nibrahee         ###   ########.fr       */
+/*   Updated: 2026/02/03 18:46:51 by nibrahee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ int main(int argc, char **argv)
     if (!is_sorted(stack_a))
     {
         //if (config.stategy == 3)
-            radix_sort(stack_a, stack_b, &config);
+            insertion_sort(stack_a, stack_b, &config);
 
     }
 

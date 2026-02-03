@@ -21,7 +21,6 @@ void    init_stack(t_stack *stack)
     stack -> size = 0;
 }
 
-
 t_stack *create_stack(int argc, char **argv,int start_index) 
 {
     int i;
