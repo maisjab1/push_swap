@@ -32,21 +32,27 @@ void	swap(t_stack *stack) // swap the first two elements of stack a
 	stack -> top = second;
 }
 
-void	sa(t_stack *a)
+void	sa(t_stack *a,t_config *config)
 {
 	swap(a);
 	ft_printf("sa\n");
+	config->ops_count.sa++;
+	config->ops_count.total++;
 }
 
-void    sb(t_stack *b)
+void    sb(t_stack *b,t_config *config)
 {
 	swap(b);
 	ft_printf("sb\n");
+	config->ops_count.sb++;
+	config->ops_count.total++;
 }
 
-void	ss(t_stack *a, t_stack *b)
+void	ss(t_stack *a, t_stack *b,t_config *config)
 {
 	swap(a);
 	swap(b);
 	ft_printf("ss\n");
+	config->ops_count.ss++;
+	config->ops_count.total++;
 }
