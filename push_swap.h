@@ -19,10 +19,27 @@ typedef struct  s_stack{
     int     size;
 }   t_stack;
 
+typedef struct  s_ops_count{
+    int sa;
+    int sb;
+    int ss;
+    int pa;
+    int pb;
+    int ra;
+    int rb;
+    int rr;
+    int rra;
+    int rrb;
+    int rrr;
+    int total;
+}   t_ops_count;
+
 typedef struct  s_config{
    int benchmark;
    int stategy;
+   t_ops_count ops_count;
 }   t_config;
+
 
 t_stack *create_stack(int argc, char **argv,int start_index);
 t_node  *create_node(int value);
@@ -32,20 +49,24 @@ t_node	*pop(t_stack *head);
 void printStack(t_stack **stack);
 void get_index(t_stack *stack);
 int parse_flags(int argc, char **argv, t_config *config);
+float compute_disorder(t_stack  *stack);
+void print_disorder(double disorder);
+void print_benchmarks(t_config *config, t_stack *stack);
+
 
 /********************* operations ***************************/
 
-void    pa(t_stack *a, t_stack *b);
-void    pb(t_stack *b, t_stack *a);
-void    sa(t_stack *a);
-void    sb(t_stack *b);
-void    ra(t_stack *a);
-void    rb(t_stack *b);
-void    rra(t_stack *a);
-void    rrb(t_stack *b);
-void    ss(t_stack *a, t_stack *b);
-void    rr(t_stack *a, t_stack *b);
-void    rrr(t_stack *a, t_stack *b);
+void    pa(t_stack *a, t_stack *b,t_config *config);
+void    pb(t_stack *b, t_stack *a,t_config *config);
+void    sa(t_stack *a,t_config *config);
+void    sb(t_stack *b,t_config *config);
+void    ra(t_stack *a,t_config *config);
+void    rb(t_stack *b,t_config *config);
+void    rra(t_stack *a,t_config *config);
+void    rrb(t_stack *b,t_config *config);
+void    ss(t_stack *a, t_stack *b,t_config *config);
+void    rr(t_stack *a, t_stack *b,t_config *config);
+void    rrr(t_stack *a, t_stack *b,t_config *config);
 
 /********************* utils ***************************/
 
