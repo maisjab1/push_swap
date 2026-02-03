@@ -75,5 +75,6 @@ int is_duplicate(char **argv, int start_index);
 long long  ft_atol(const char *nptr);
 void radix_sort(t_stack *stack_a, t_stack *stack_b,t_config *config);
 int is_sorted(t_stack *stack);
-
+void    sort_3(t_stack *stack, t_config *config);
+void    insertion_sort(t_stack *a, t_stack *b, t_config *config);
 #endif
