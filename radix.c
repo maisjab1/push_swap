@@ -17,7 +17,7 @@ int get_max(t_stack *stack)
     return (max);
 }
 
-void radix_sort(t_stack *stack_a, t_stack *stack_b)
+void radix_sort(t_stack *stack_a, t_stack *stack_b,t_config *config)
 {
     int i, j, size;
     int max_bits;
@@ -39,13 +39,16 @@ void radix_sort(t_stack *stack_a, t_stack *stack_b)
         {
             t_node *node = stack_a->top;
             if (((node->index >> i) & 1) == 0)
-                pb(stack_b, stack_a);
+                pb(stack_b, stack_a,config);
+                
             else
-                ra(stack_a);
+                ra(stack_a,config);
+            
+                
             j++;
         }
         while (stack_b->size > 0)
-            pa(stack_a, stack_b);
+                pa(stack_a, stack_b,config);
         i++;
     }
 }

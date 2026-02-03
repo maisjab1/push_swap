@@ -49,9 +49,9 @@ t_node	*pop(t_stack *head);
 void printStack(t_stack **stack);
 void get_index(t_stack *stack);
 int parse_flags(int argc, char **argv, t_config *config);
-float compute_disorder(t_stack  *stack);
+double compute_disorder(t_stack  *stack);
 void print_disorder(double disorder);
-void print_benchmarks(t_config *config, t_stack *stack);
+void print_benchmarks(t_config *config, t_stack *stack,double disorder);
 
 
 /********************* operations ***************************/
@@ -71,9 +71,9 @@ void    rrr(t_stack *a, t_stack *b,t_config *config);
 /********************* utils ***************************/
 
 void checker(int argc, char **argv, int start_index);
-int is_duplicate(char **argv);
+int is_duplicate(char **argv, int start_index);
 long long  ft_atol(const char *nptr);
-void radix_sort(t_stack *stack_a, t_stack *stack_b);
+void radix_sort(t_stack *stack_a, t_stack *stack_b,t_config *config);
 int is_sorted(t_stack *stack);
 
 #endif

@@ -33,7 +33,7 @@ void    push(t_stack *stack, t_node *node)
 	}
 }
 
-void	pa(t_stack *a, t_stack *b)
+void	pa(t_stack *a, t_stack *b,t_config *config)
 {
 	t_node	*node;
 
@@ -42,9 +42,11 @@ void	pa(t_stack *a, t_stack *b)
 	node = pop(b);
 	push(a, node);
 	ft_printf("pa\n");
+	config->ops_count.pa++;
+	config->ops_count.total++;
 }
 
-void	pb(t_stack *b, t_stack *a)
+void	pb(t_stack *b, t_stack *a,t_config *config)
 {
 	t_node	*node;
 
@@ -53,6 +55,8 @@ void	pb(t_stack *b, t_stack *a)
 	node = pop(a);
 	push(b, node);
 	ft_printf("pb\n");
+	config->ops_count.pb++;
+	config->ops_count.total++;
 }
 
 t_node	*pop(t_stack *stack)
