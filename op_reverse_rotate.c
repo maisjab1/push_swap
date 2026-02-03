@@ -29,21 +29,27 @@ void	reverse_rotate(t_stack *stack) // rotate stack a downwards
 	stack -> top = last;
 }
 
-void	rra(t_stack *a)
+void	rra(t_stack *a,t_config *config)
 {
 	reverse_rotate(a);
 	ft_printf("rra\n");
+	config->ops_count.rra++;
+	config->ops_count.total++;
 }
 
-void	rrb(t_stack *b)
+void	rrb(t_stack *b,t_config *config)
 {
 	reverse_rotate(b);
 	ft_printf("rrb\n");
+	config->ops_count.rrb++;
+	config->ops_count.total++;
 }
 
-void	rrr(t_stack *a, t_stack *b)
+void	rrr(t_stack *a, t_stack *b,t_config *config)
 {
 	reverse_rotate(a);
 	reverse_rotate(b);
 	ft_printf("rrr\n");
+	config->ops_count.rrr++;
+	config->ops_count.total++;
 }

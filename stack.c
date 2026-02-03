@@ -21,7 +21,7 @@ void    init_stack(t_stack *stack)
     stack -> size = 0;
 }
 
-t_stack *create_stack(int argc, char **argv)
+t_stack *create_stack(int argc, char **argv,int start_index) 
 {
     int i;
     t_stack *stack;
@@ -31,7 +31,7 @@ t_stack *create_stack(int argc, char **argv)
         return (NULL);
     init_stack(stack);
     i = argc - 1;
-    while (i > 0)
+    while (i >= start_index)
     {
         push(stack,create_node((int)ft_atoi(argv[i])));
         i--;

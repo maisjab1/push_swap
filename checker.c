@@ -1,11 +1,11 @@
 #include "push_swap.h"
 
-int is_duplicate(char **argv)
+int is_duplicate(char **argv, int start_index)
 {
     int i;
     int j;
 
-    i = 1;
+    i = start_index;
     while (argv[i])
     {
         j = i + 1;
@@ -27,8 +27,9 @@ int ft_isnum(char *num)
     i = 0;
     if (num[i] == '-' || num[i] == '+')
         i++;
+
     if (!num[i])
-        return (0);
+       return (0);
     while (num[i])
     {
         if (!ft_isdigit(num[i]))
@@ -38,14 +39,13 @@ int ft_isnum(char *num)
     return (1);
 }
 
-void checker(int argc, char **argv)
+void checker(int argc, char **argv, int start_index)
 {
     int i;
    long  long n; // modified to long long to handle larger numbers
     char **args;
-    
     (void)argc;
-    i = 1;
+    i = start_index;
     args = argv;
     while(args[i])
     {
@@ -63,9 +63,9 @@ void checker(int argc, char **argv)
         i++;
     }
 
-    if (is_duplicate(argv))
+    if (is_duplicate(argv,start_index))
     {
-        ft_putendl_fd("Error", 1);
+        ft_putendl_fd("Error d", 1);
         exit(1);
     }
 }

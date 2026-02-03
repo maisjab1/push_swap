@@ -70,24 +70,61 @@ void printStack(t_stack **stack)
 
 int main(int argc, char **argv)
 {
+    
     t_stack *stack_a;
     t_stack *stack_b;
-    checker(argc, argv);
-    stack_a = create_stack(argc, argv);
+    t_config config;
+    ft_memset(&config, 0, sizeof(t_config));
+    
+    int start_index;
+    if (argc < 2)
+        return (0);
+    start_index = parse_flags(argc, argv, &config);
+
+    checker(argc, argv, start_index);
+    stack_a = create_stack(argc, argv, start_index);
     stack_b = malloc(sizeof(t_stack));
+    if(!stack_b)
+        return (1);
     init_stack(stack_b);
     get_index(stack_a);
+    double disorder = compute_disorder(stack_a);    
+    if (config.stategy == 0) // Adaptive
+    {
+        if (disorder < 20.0) 
+            config.stategy = 1; // Simple O(n) or O(n^2)
+        else if (disorder < 50.0)
+            config.stategy = 2; // Medium O(n√n)
+        else
+             config.stategy = 3; // Complex O(n log n)
+    }
+
+
+
+
     printf("\033[0;35m");   //purple color
     printf("Stack a before sorting :\n ");
     printStack(&stack_a);
     printf("\033[0m");
+    
     if (!is_sorted(stack_a))
-        radix_sort(stack_a, stack_b);
+    {
+        //if (config.stategy == 3)
+            radix_sort(stack_a, stack_b, &config);
+
+    }
+
+
     printf("\033[0;32m"); // Green
     printf("Stack a after sorting :\n ");
     printStack(&stack_a);
     printf("\033[0m");
+
+    if (config.benchmark)
+        print_benchmarks(&config, stack_a,disorder);
     return 0;
+
+
 }
 
     /*
