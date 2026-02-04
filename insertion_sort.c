@@ -38,7 +38,6 @@ void	insertion_sort(t_stack *a, t_stack *b, t_config *config)
 	int	pos;
 	int	smallest_index;
 
-	get_index(a);
 	while (a -> size > 3)
 	{
 		smallest_index = find_min_index(a);
@@ -54,6 +53,8 @@ void	insertion_sort(t_stack *a, t_stack *b, t_config *config)
 			while (pos--)
 				rra(a, config);
 		}
+		if (is_sorted(a))
+			break ;
 		pb(b, a, config);
 	}
 	sort_3(a, config);

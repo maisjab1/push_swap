@@ -32,10 +32,10 @@ void radix_sort(t_stack *stack_a, t_stack *stack_b,t_config *config)
     while ((max >> max_bits) != 0)
         max_bits++;
     i=0;
-    while (i < max_bits)
+    while (i < max_bits )
     {
         j = 0;
-        while (j < size)
+        while (j < size && !is_sorted(stack_a))
         {
             t_node *node = stack_a->top;
             if (((node->index >> i) & 1) == 0)
@@ -51,6 +51,7 @@ void radix_sort(t_stack *stack_a, t_stack *stack_b,t_config *config)
                 pa(stack_a, stack_b,config);
         i++;
     }
+   
 }
  /*    
 int main(int argc, char **argv)
