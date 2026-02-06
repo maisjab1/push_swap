@@ -33,7 +33,7 @@ static int	get_position_of_index(t_stack *stack, int index)
 	return (-1);
 }
 
-void	insertion_sort(t_stack *a, t_stack *b, t_config *config)
+void	selection_sort(t_stack *a, t_stack *b, t_config *config)
 {
 	int	pos;
 	int	smallest_index;
