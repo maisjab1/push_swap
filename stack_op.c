@@ -6,7 +6,7 @@
 /*   By: mjabarin <mjabarin@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 15:52:07 by mjabarin          #+#    #+#             */
-/*   Updated: 2026/02/06 12:22:23 by mjabarin         ###   ########.fr       */
+/*   Updated: 2026/02/06 13:42:33 by mjabarin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,8 +122,11 @@ int main(int argc, char **argv)
 
     if (config.benchmark)
         print_benchmarks(&config,disorder);
+     free_stack(stack_a);
+    free_stack(stack_b);
     return 0;
-
+   
+    
 
 }
 
