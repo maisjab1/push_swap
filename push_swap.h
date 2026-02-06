@@ -52,7 +52,7 @@ int parse_flags(int argc, char **argv, t_config *config);
 double compute_disorder(t_stack  *stack);
 void print_disorder(double disorder);
 void print_benchmarks(t_config *config,double disorder);
-
+void free_stack(t_stack *stack);
 
 /********************* operations ***************************/
 

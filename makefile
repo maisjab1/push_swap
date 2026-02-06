@@ -16,7 +16,7 @@ CFLAGS = -Wall -Wextra -Werror
 INCLUDE = -I .
 SRCS = push.c op_swap.c op_rotate.c op_reverse_rotate.c \
        bench.c checker.c disorder.c insertion_sort.c is_sorted.c \
-       parse.c radix.c set_index.c sort_3.c stack_op.c stack.c
+       parse.c radix.c set_index.c sort_3.c stack_op.c stack.c free.c
 
 OBJS = $(SRCS:.c=.o)
 
