@@ -51,7 +51,7 @@ void get_index(t_stack *stack);
 int parse_flags(int argc, char **argv, t_config *config);
 double compute_disorder(t_stack  *stack);
 void print_disorder(double disorder);
-void print_benchmarks(t_config *config, t_stack *stack,double disorder);
+void print_benchmarks(t_config *config,double disorder);
 
 
 /********************* operations ***************************/
