@@ -6,7 +6,7 @@
 /*   By: mjabarin <mjabarin@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 15:52:07 by mjabarin          #+#    #+#             */
-/*   Updated: 2026/02/03 18:46:51 by nibrahee         ###   ########.fr       */
+/*   Updated: 2026/02/06 12:22:23 by mjabarin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,7 +121,7 @@ int main(int argc, char **argv)
     printf("\033[0m");
 
     if (config.benchmark)
-        print_benchmarks(&config, stack_a,disorder);
+        print_benchmarks(&config,disorder);
     return 0;
 
 
