@@ -6,7 +6,7 @@
 /*   By: mjabarin <mjabarin@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 15:52:07 by mjabarin          #+#    #+#             */
-/*   Updated: 2026/02/06 13:42:33 by mjabarin         ###   ########.fr       */
+/*   Updated: 2026/02/06 22:58:59 by nibrahee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int main(int argc, char **argv)
         return (0);
     start_index = parse_flags(argc, argv, &config);
 
-    checker(argc, argv, start_index);
+    checker(argv, start_index);
     stack_a = create_stack(argc, argv, start_index);
     stack_b = malloc(sizeof(t_stack));
     if(!stack_b)
@@ -110,7 +110,7 @@ int main(int argc, char **argv)
     if (!is_sorted(stack_a))
     {
         //if (config.stategy == 3)
-            insertion_sort(stack_a, stack_b, &config);
+            chunk_sort(stack_a, stack_b, &config);
 
     }
 
