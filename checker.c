@@ -57,40 +57,31 @@ void	free_split(char **s)
 
 void checker(char **argv, int start_index)
 {
-	int	i;
-	int	j;
-	long  long	n; // modified to long long to handle larger number 
-	char	**input;//renames args to input
-	
-	i = start_index;
-	while(argv[i])
-	{
-		input = ft_split(argv[i],' ');
-		if (!input || !input[0])
-		{
-			free_split(input);
-			return ;
-		}
-		j = 0;
-		while (input[j])
-		{ 
-			if (!ft_isnum(input[i]))
-			{
-				free_split(input);
-				Error_and_exit();
-			}
-		 	n = ft_atoi(input[i]);
-			if (n >  2147483647 || n < -2147483648) 
-			{
-				free_split(input);
-				Error_and_exit();
-			}
-			j++;
-		}
-		
-		if (is_duplicate(argv,start_index))
-			Error_and_exit();
-		i++;
-		free_split(input);
-	}
+	int i;
+   long  long n; // modified to long long to handle larger numbers
+    char **args;
+    
+    i = start_index;
+    args = argv;
+    while(args[i])
+    {
+        if (!ft_isnum(args[i]))
+        {
+            ft_putendl_fd("Error", 1);
+            exit(1);
+        }
+        n = ft_atoi(args[i]);
+        if (n >  2147483647 || n < -2147483648)
+        {
+            ft_putendl_fd("Error", 1);
+            exit(1);
+        }
+        i++;
+    }
+
+    if (is_duplicate(argv,start_index))
+    {
+        ft_putendl_fd("Error d", 1);
+        exit(1);
+    }
 }

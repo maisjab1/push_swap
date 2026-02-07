@@ -6,7 +6,7 @@
 /*   By: mjabarin <mjabarin@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/30 13:22:45 by mjabarin          #+#    #+#             */
-/*   Updated: 2026/01/31 12:52:49 by mjabarin         ###   ########.fr       */
+/*   Updated: 2026/02/01 15:48:09 by nibrahee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 typedef struct s_list
 {
 	void			*content;
+	int		index;
 	struct s_list	*next;
 }	t_list;
 

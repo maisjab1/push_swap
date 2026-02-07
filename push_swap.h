@@ -51,7 +51,7 @@ void	get_index(t_stack *stack);
 int	parse_flags(int argc, char **argv, t_config *config);
 double	compute_disorder(t_stack  *stack);
 void	print_disorder(double disorder);
-void	print_benchmarks(t_config *config,double disorder);
+void	print_benchmarks(t_config *config,double disorder,int is_adap);
 void	free_stack(t_stack *stack);
 void	Error_and_exit();
 
@@ -86,4 +86,10 @@ int	get_chunk_size(int size);
 int	find_pos(t_stack *stack, int index);
 int	find_max_index(t_stack *stack);
 void	rotate_b_to_top(t_stack *b, int index,t_config *config);
+
+/********************** bench ***********************/
+void	print_adaptive(t_config *config);
+void	print_strategy(t_config *config);
+void	print_ops(t_config *config);
+
 #endif
