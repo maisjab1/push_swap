@@ -4,26 +4,29 @@ double compute_disorder(t_stack  *stack)
 {
     int mistakes;
     int total_pairs;
-    int i;
+    
+    t_node *a;
+    t_node *b;
 
-    i = 0;
+    if(!stack || stack->size < 2)
+        return (0.0);
     mistakes = 0;
     total_pairs = 0;
-    if (!stack || stack->size < 2)
-        return (0.0);
-    while(i < ft_lstsize((t_list*)stack->top))
+    a = stack->top;
+    while (a)  
     {
-        t_node *current = stack->top;
-        while(current->next)
+        b = a->next;
+        while (b)
         {
-            if (current->value > current->next->value)
-                mistakes++;
             total_pairs++;
-            current = current->next;
+            if (a->value > b->value)
+                mistakes++;
+            b = b->next;
         }
-        i++;
+        a = a->next;
     }
-    return ((double)mistakes  / total_pairs *100);
+    
+    return (((double)mistakes  / total_pairs )*100.0);
 }
 
 void print_disorder(double disorder)

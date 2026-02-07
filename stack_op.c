@@ -6,54 +6,13 @@
 /*   By: mjabarin <mjabarin@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 15:52:07 by mjabarin          #+#    #+#             */
-/*   Updated: 2026/02/07 15:53:15 by nibrahee         ###   ########.fr       */
+/*   Updated: 2026/02/07 17:37:28 by mjabarin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include "push_swap.h"
-/* 
-t_stack **create_stack(t_stack **stack,int argc, char **argv)
-{
-    int i;
 
-    i = argc - 1;
-    while (i > 0)
-    {
-        push(stack, (int)ft_atoi(argv[i]));
-        i--;
-    }
-    return (stack);
-}
-void set_index(t_stack *stack)
-{
-    int index;
-    t_stack *current;
-
-    index = 0;
-    current = stack;
-    while (current)
-    {
-        current->index = index++;
-        current = current->next;
-    }
-}
-
-void    pop(t_stack *head)
-{
-    t_node	*temp;
-
-    if (!head || head -> size == 0)
-        return ;
-    temp = head -> top;
-    head -> top = head -> top -> next;
-    if (head -> top)
-        head -> top -> prev = NULL;
-    else
-        head -> bottom = NULL;
-    free(temp);
-    head -> size--;
-}*/
 void printStack(t_stack **stack)
 {
     t_node *current;
@@ -117,12 +76,12 @@ int main(int argc, char **argv)
 
 
 
-
+/*
     printf("\033[0;35m");   //purple color
     printf("Stack a before sorting :\n ");
     printStack(&stack_a);
     printf("\033[0m");
-    
+    */
     if (!is_sorted(stack_a))
     {
         if (config->stategy == 1)
@@ -133,12 +92,12 @@ int main(int argc, char **argv)
             radix_sort(stack_a, stack_b, config);
     }
 
-
+/*
     printf("\033[0;32m"); // Green
     printf("Stack a after sorting :\n ");
     printStack(&stack_a);
     printf("\033[0m");
-
+*/
     if (config->benchmark)
         print_benchmarks(config,disorder,is_adap);
     free_stack(stack_a);
