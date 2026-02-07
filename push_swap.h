@@ -6,45 +6,44 @@
 //#include ".\printf\ft_printf.h" for windows
 //#include ".\libft\libft.h"//for windows
  
-typedef struct s_node{
-    int value;
-    int index;
-    struct s_node   *next;
-    struct s_node   *prev;
-}   t_node;
+typedef struct	s_node{
+	int	value;
+	int	index;
+	struct s_node	*next;
+	struct s_node	*prev;
+}		t_node;
 
-typedef struct  s_stack{
-    t_node  *top;
-    t_node  *bottom;
-    int     size;
-}   t_stack;
+typedef struct	s_stack{
+	t_node  *top;
+	int	size;
+}		t_stack;
 
-typedef struct  s_ops_count{
-    int sa;
-    int sb;
-    int ss;
-    int pa;
-    int pb;
-    int ra;
-    int rb;
-    int rr;
-    int rra;
-    int rrb;
-    int rrr;
-    int total;
-}   t_ops_count;
+typedef struct	s_ops_count{
+	int	sa;
+	int	sb;
+	int	ss;
+	int	pa;
+	int	pb;
+	int	ra;
+	int	rb;
+	int	rr;
+	int	rra;
+	int	rrb;
+	int	rrr;
+	int	total;
+}		t_ops_count;
 
-typedef struct  s_config{
-   int benchmark;
-   int stategy;
-   t_ops_count ops_count;
-}   t_config;
+typedef struct	s_config{
+	int		benchmark;
+	int		stategy;
+	t_ops_count	ops_count;
+}		t_config;
 
 
 t_stack	*create_stack(int argc, char **argv,int start_index);
 t_node	*create_node(int value);
 void	init_stack(t_stack *stack);
-void	push(t_stack *stack, t_node *node);
+int	push(t_stack *stack, t_node *node);
 t_node	*pop(t_stack *head);
 void	printStack(t_stack **stack);
 void	get_index(t_stack *stack);
