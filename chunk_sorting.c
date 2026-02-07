@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   chunk_sorting.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nibrahee <nibrahee@learner.42.tech>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/02/07 12:12:57 by nibrahee          #+#    #+#             */
+/*   Updated: 2026/02/07 12:27:16 by nibrahee         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static void	push_chunks(t_stack *a, t_stack *b, int chunk_size,t_config *config)
 {
-	int	i;
+	int	i;// current lowest index looking for
 	int	pos;
 
 	i = 0;
