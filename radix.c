@@ -24,7 +24,6 @@ void radix_sort(t_stack *stack_a, t_stack *stack_b,t_config *config)
 
     size = stack_a->size;
     stack_b->top = NULL;
-    stack_b->bottom = NULL;
     stack_b->size = 0;
 
     max_bits = 0;

@@ -14,11 +14,10 @@ t_node  *create_node(int value)
     return (node);
 }
 
-void    init_stack(t_stack *stack)
+void	init_stack(t_stack *stack)
 {
-    stack -> top = NULL;
-    stack -> bottom = NULL;
-    stack -> size = 0;
+	stack -> top = NULL;
+	stack -> size = 0;
 }
 
 t_stack *create_stack(int argc, char **argv,int start_index) 

@@ -6,19 +6,18 @@
 /*   By: mjabarin <mjabarin@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 16:27:46 by mjabarin          #+#    #+#             */
-/*   Updated: 2026/02/01 13:21:00 by nibrahee         ###   ########.fr       */
+/*   Updated: 2026/02/07 20:19:45 by nibrahee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
 
-void    push(t_stack *stack, t_node *node)
+int	push(t_stack *stack, t_node *node)
 {
     if (!stack || !node)
-		return ;
+		return (0);
 	if (stack -> size == 0)
 	{
 		stack -> top = node;
-		stack -> bottom = node;
 		node -> next = NULL;
 		node -> prev = NULL;
 		stack -> size++;
@@ -31,6 +30,7 @@ void    push(t_stack *stack, t_node *node)
 		stack -> size++;
 		stack -> top -> prev = NULL;
 	}
+	return (1);
 }
 
 void	pa(t_stack *a, t_stack *b,t_config *config)
@@ -40,10 +40,12 @@ void	pa(t_stack *a, t_stack *b,t_config *config)
 	if (!a || !b )
 		return;
 	node = pop(b);
-	push(a, node);
-	ft_printf("pa\n");
-	config->ops_count.pa++;
-	config->ops_count.total++;
+	if (push(a, node))
+	{
+		ft_printf("pa\n");
+		config->ops_count.pa++;
+		config->ops_count.total++;
+	}
 }
 
 void	pb(t_stack *b, t_stack *a,t_config *config)
@@ -53,10 +55,12 @@ void	pb(t_stack *b, t_stack *a,t_config *config)
 	if (!a || !b)
 		return;
 	node = pop(a);
-	push(b, node);
-	ft_printf("pb\n");
-	config->ops_count.pb++;
-	config->ops_count.total++;
+	if (push(b, node) && node)
+	{
+		ft_printf("pb\n");
+		config -> ops_count.pb++;
+		config -> ops_count.total++;
+	}
 }
 
 t_node	*pop(t_stack *stack)
@@ -70,7 +74,7 @@ t_node	*pop(t_stack *stack)
 	if (stack -> top)
 		stack -> top -> prev = NULL;
 	else
-		stack -> bottom = NULL;
+		stack -> top = NULL;//no nodes left in the stack
 	temp -> next = NULL;
 	temp -> prev = NULL;
 	stack -> size--;
