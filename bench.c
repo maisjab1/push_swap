@@ -33,9 +33,8 @@ void    print_strategy(t_config *config)
 
 void	print_ops(t_config *config)
 {
-	ft_putstr_fd("[bench] total_ops: ", 2);
-	ft_putnbr_fd(config -> ops_count.total, 2);
-	ft_putstr_fd("\nsa: ", 2);
+	ft_putstr_fd("\n[bench]  ", 2);
+	ft_putstr_fd("sa: ", 2);
 	ft_putnbr_fd(config->ops_count.sa, 2);
 	ft_putstr_fd(" sb: ", 2);
 	ft_putnbr_fd(config->ops_count.sb, 2);
@@ -46,6 +45,7 @@ void	print_ops(t_config *config)
 	ft_putstr_fd(" pb: ", 2);
 	ft_putnbr_fd(config->ops_count.pb, 2);
 	ft_putstr_fd("\n", 2);
+	ft_putstr_fd("[bench]  ", 2);
 	ft_putstr_fd("ra: ", 2);
 	ft_putnbr_fd(config->ops_count.ra, 2);
 	ft_putstr_fd(" rb: ", 2);
@@ -67,6 +67,7 @@ void print_benchmarks(t_config *config,double disorder,int is_adap)
 		print_adaptive(config);
 	else
 		 print_strategy(config);
-
+	ft_putstr_fd("[bench] total_ops: ", 2);
+	ft_putnbr_fd(config -> ops_count.total, 2);
 	print_ops(config);
 }
