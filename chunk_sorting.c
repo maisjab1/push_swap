@@ -6,30 +6,27 @@
 /*   By: nibrahee <nibrahee@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/07 12:12:57 by nibrahee          #+#    #+#             */
-/*   Updated: 2026/02/07 12:27:16 by nibrahee         ###   ########.fr       */
+/*   Updated: 2026/02/08 16:24:52 by nibrahee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	push_chunks(t_stack *a, t_stack *b, int chunk_size,t_config *config)
+static void	push_chunks(t_stack *a, t_stack *b
+		, int chunk_size, t_config *config)
 {
-	int	i;// current lowest index looking for
+	int	i;
 	int	pos;
 
 	i = 0;
 	while (a -> size > 0)
 	{
 		if (a -> top -> index <= i)
-		{
 			pb(b, a, config);
-			i++;
-		}
 		else if (a -> top -> index <= i + chunk_size)
 		{
 			pb(b, a, config);
 			rb(b, config);
-			i++;
 		}
 		else
 		{
@@ -39,6 +36,8 @@ static void	push_chunks(t_stack *a, t_stack *b, int chunk_size,t_config *config)
 			else
 				rra(a, config);
 		}
+		if (a -> top -> index <= i || a -> top -> index <= i + chunk_size)
+			i++;
 	}
 }
 
@@ -62,5 +61,5 @@ void	chunk_sort(t_stack *a, t_stack *b, t_config *config)
 		return ;
 	chunk_size = get_chunk_size(a -> size);
 	push_chunks(a, b, chunk_size, config);
-	push_back_to_a(a, b, config);	 
+	push_back_to_a(a, b, config);
 }

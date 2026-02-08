@@ -6,7 +6,7 @@
 /*   By: nibrahee <nibrahee@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/01 13:42:33 by nibrahee          #+#    #+#             */
-/*   Updated: 2026/02/07 20:47:32 by nibrahee         ###   ########.fr       */
+/*   Updated: 2026/02/08 15:58:12 by nibrahee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static int	swap(t_stack *stack) // swap the first two elements of stack a
 	t_node	*first;
 	t_node	*second;
 
-	if (!stack || !stack -> top ||stack -> size < 2)
+	if (!stack || !stack -> top || stack -> size < 2)
 		return (0);
 	first = stack -> top;
 	second = stack -> top -> next;
@@ -31,7 +31,7 @@ static int	swap(t_stack *stack) // swap the first two elements of stack a
 	return (1);
 }
 
-void	sa(t_stack *a,t_config *config)
+void	sa(t_stack *a, t_config *config)
 {
 	if (swap(a))
 	{
@@ -41,7 +41,7 @@ void	sa(t_stack *a,t_config *config)
 	}
 }
 
-void	sb(t_stack *b,t_config *config)
+void	sb(t_stack *b, t_config *config)
 {
 	if (swap(b))
 	{
@@ -51,7 +51,7 @@ void	sb(t_stack *b,t_config *config)
 	}
 }
 
-void	ss(t_stack *a, t_stack *b,t_config *config)
+void	ss(t_stack *a, t_stack *b, t_config *config)
 {
 	if (swap(a) && swap(b))
 	{

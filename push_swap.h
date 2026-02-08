@@ -6,7 +6,7 @@
 /*   By: nibrahee <nibrahee@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/08 14:53:59 by nibrahee          #+#    #+#             */
-/*   Updated: 2026/02/08 14:55:44 by nibrahee         ###   ########.fr       */
+/*   Updated: 2026/02/08 16:22:08 by nibrahee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ double	compute_disorder(t_stack  *stack);
 void	print_disorder(double disorder);
 void	print_benchmarks(t_config *config,double disorder,int is_adap);
 void	free_stack(t_stack *stack);
-void	Error_and_exit();
+void	error_and_exit();
 
 /********************* operations ***************************/
 

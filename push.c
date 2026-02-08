@@ -6,14 +6,14 @@
 /*   By: mjabarin <mjabarin@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/24 16:27:46 by mjabarin          #+#    #+#             */
-/*   Updated: 2026/02/07 20:19:45 by nibrahee         ###   ########.fr       */
+/*   Updated: 2026/02/08 16:30:15 by nibrahee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
 
 int	push(t_stack *stack, t_node *node)
 {
-    if (!stack || !node)
+	if (!stack || !node)
 		return (0);
 	if (stack -> size == 0)
 	{
@@ -33,12 +33,12 @@ int	push(t_stack *stack, t_node *node)
 	return (1);
 }
 
-void	pa(t_stack *a, t_stack *b,t_config *config)
+void	pa(t_stack *a, t_stack *b, t_config *config)
 {
 	t_node	*node;
 
-	if (!a || !b )
-		return;
+	if (!a || !b)
+		return ;
 	node = pop(b);
 	if (push(a, node))
 	{
@@ -48,12 +48,12 @@ void	pa(t_stack *a, t_stack *b,t_config *config)
 	}
 }
 
-void	pb(t_stack *b, t_stack *a,t_config *config)
+void	pb(t_stack *b, t_stack *a, t_config *config)
 {
 	t_node	*node;
 
 	if (!a || !b)
-		return;
+		return ;
 	node = pop(a);
 	if (push(b, node) && node)
 	{
@@ -68,13 +68,13 @@ t_node	*pop(t_stack *stack)
 	t_node	*temp;
 
 	if (!stack || stack -> size == 0)
-		return NULL;
+		return (NULL);
 	temp = stack -> top;
 	stack -> top = stack -> top -> next;
 	if (stack -> top)
 		stack -> top -> prev = NULL;
 	else
-		stack -> top = NULL;//no nodes left in the stack
+		stack -> top = NULL;
 	temp -> next = NULL;
 	temp -> prev = NULL;
 	stack -> size--;

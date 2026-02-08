@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   selection_sort.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nibrahee <nibrahee@learner.42.tech>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/02/08 16:37:03 by nibrahee          #+#    #+#             */
+/*   Updated: 2026/02/08 16:37:47 by nibrahee         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static int	find_min_index(t_stack *stack)
 {
-	int	min;
+	int		min;
 	t_node	*temp;
 
 	min = stack -> top -> index;
@@ -18,7 +30,7 @@ static int	find_min_index(t_stack *stack)
 
 static int	get_position_of_index(t_stack *stack, int index)
 {
-	int	pos;
+	int		pos;
 	t_node	*temp;
 
 	pos = 0;
@@ -42,7 +54,7 @@ void	selection_sort(t_stack *a, t_stack *b, t_config *config)
 	{
 		smallest_index = find_min_index(a);
 		pos = get_position_of_index(a, smallest_index);
-		if (pos <= (a -> size) /2)
+		if (pos <= (a -> size) / 2)
 		{
 			while (pos--)
 				ra(a, config);

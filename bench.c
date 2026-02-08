@@ -6,7 +6,7 @@
 /*   By: nibrahee <nibrahee@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/08 13:38:29 by nibrahee          #+#    #+#             */
-/*   Updated: 2026/02/08 14:03:41 by nibrahee         ###   ########.fr       */
+/*   Updated: 2026/02/08 15:24:46 by nibrahee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 void	print_adaptive(t_config *config)
 {
 	int	stat_indx;
-	
+
 	stat_indx = config -> stategy;
-	ft_putstr_fd("[bench] strategy: ",2);
+	ft_putstr_fd("[bench] strategy: ", 2);
 	ft_putstr_fd("Adaptive ", 2);
 	if (stat_indx == 1)
 		ft_putstr_fd (" O(n2))\n", 2);
@@ -54,8 +54,7 @@ void	print_ops(t_config *config)
 	ft_putnbr_fd(config->ops_count.pa, 2);
 	ft_putstr_fd(" pb: ", 2);
 	ft_putnbr_fd(config->ops_count.pb, 2);
-	ft_putstr_fd("\n", 2);
-	ft_putstr_fd("[bench]  ", 2);
+	ft_putstr_fd("\n[bench] ", 2);
 	ft_putstr_fd("ra: ", 2);
 	ft_putnbr_fd(config->ops_count.ra, 2);
 	ft_putstr_fd(" rb: ", 2);
@@ -70,6 +69,7 @@ void	print_ops(t_config *config)
 	ft_putnbr_fd(config->ops_count.rrr, 2);
 	ft_putstr_fd("\n", 2);
 }
+
 void	print_benchmarks(t_config *config, double disorder, int is_adap)
 {
 	print_disorder(disorder);

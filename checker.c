@@ -6,41 +6,41 @@
 /*   By: nibrahee <nibrahee@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/08 14:57:40 by nibrahee          #+#    #+#             */
-/*   Updated: 2026/02/08 15:00:34 by nibrahee         ###   ########.fr       */
+/*   Updated: 2026/02/08 16:26:49 by nibrahee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int is_duplicate(char **argv, int start_index)
+int	is_duplicate(char **argv, int start_index)
 {
-    int i;
-    int j;
+	int	i;
+	int	j;
 
-    i = start_index;
-    while (argv[i])
-    {
-        j = i + 1;
-        while (argv[j])
-        {
-            if (ft_atoi(argv[i]) == ft_atoi(argv[j]))
-                return (1);
-            j++;
-        }
-        i++;
-    }
-    return (0);
+	i = start_index;
+	while (argv[i])
+	{
+		j = i + 1;
+		while (argv[j])
+		{
+			if (ft_atoi(argv[i]) == ft_atoi(argv[j]))
+				return (1);
+			j++;
+		}
+		i++;
+	}
+	return (0);
 }
 
-int ft_isnum(char *num) 
+int	ft_isnum(char *num)
 {
-    int i;
+	int	i;
 
-    i = 0;
+	i = 0;
 	if (!num || !*num)
 		return (0);
 	if (num[i] == '-' || num[i] == '+')
-        	i++;
+		i++;
 	if (!num[i])
 		return (0);
 	while (num[i])
@@ -67,28 +67,23 @@ void	free_split(char **s)
 	free(s);
 }
 
-void checker(char **argv, int start_index)
+void	checker(char **argv, int start_index)
 {
-	int i;
-   long  long n; // modified to long long to handle larger numbers
-    char **args;
-    
-    i = start_index;
-    args = argv;
-    while(args[i])
-    {
-        if (!ft_isnum(args[i]))
-        {
-            Error_and_exit();   
-        }
-        n = ft_atoi(args[i]);
-        if (n >  2147483647 || n < -2147483648)
-        {
-            Error_and_exit();
-        }
-        i++;
-    }
+	int			i;
+	long long	n;
+	char		**args;
 
-    if (is_duplicate(argv,start_index))
-        Error_and_exit();
+	i = start_index;
+	args = argv;
+	while (args[i])
+	{
+		if (!ft_isnum(args[i]))
+			error_and_exit();
+		n = ft_atoi(args[i]);
+		if (n > 2147483647 || n < -2147483648)
+			error_and_exit();
+		i++;
+	}
+	if (is_duplicate(argv, start_index))
+		error_and_exit();
 }

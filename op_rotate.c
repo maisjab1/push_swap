@@ -6,7 +6,7 @@
 /*   By: nibrahee <nibrahee@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/01 13:36:59 by nibrahee          #+#    #+#             */
-/*   Updated: 2026/02/07 20:47:51 by nibrahee         ###   ########.fr       */
+/*   Updated: 2026/02/08 15:57:15 by nibrahee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static int	rotate(t_stack *stack)
 	t_node	*first;
 	t_node	*last;
 
-	if (!stack|| !stack -> top|| stack -> size < 2)
+	if (!stack || !stack -> top || stack -> size < 2)
 		return (0);
 	first = stack -> top;
 	last = stack -> top;
@@ -31,7 +31,7 @@ static int	rotate(t_stack *stack)
 	return (1);
 }
 
-void	ra(t_stack *a,t_config *config)
+void	ra(t_stack *a, t_config *config)
 {
 	if (rotate(a))
 	{
@@ -41,7 +41,7 @@ void	ra(t_stack *a,t_config *config)
 	}
 }
 
-void	rb(t_stack *b,t_config *config)
+void	rb(t_stack *b, t_config *config)
 {
 	if (rotate(b))
 	{
@@ -51,7 +51,7 @@ void	rb(t_stack *b,t_config *config)
 	}
 }
 
-void	rr(t_stack *a, t_stack *b,t_config *config)
+void	rr(t_stack *a, t_stack *b, t_config *config)
 {
 	if (rotate(a) && rotate(b))
 	{
