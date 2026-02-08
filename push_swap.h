@@ -6,7 +6,7 @@
 /*   By: nibrahee <nibrahee@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/08 14:53:59 by nibrahee          #+#    #+#             */
-/*   Updated: 2026/02/08 16:22:08 by nibrahee         ###   ########.fr       */
+/*   Updated: 2026/02/08 17:00:52 by mjabarin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ t_node	*create_node(int value);
 void	init_stack(t_stack *stack);
 int	push(t_stack *stack, t_node *node);
 t_node	*pop(t_stack *head);
-void	printStack(t_stack **stack);
+void	print_stack(t_stack **stack);
 void	get_index(t_stack *stack);
 int	parse_flags(int argc, char **argv, t_config *config);
 double	compute_disorder(t_stack  *stack);

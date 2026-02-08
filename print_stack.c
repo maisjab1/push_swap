@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_2.c                                           :+:      :+:    :+:   */
+/*   print_stack.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mjabarin <mjabarin@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/08 16:39:26 by mjabarin          #+#    #+#             */
-/*   Updated: 2026/02/08 16:39:28 by mjabarin         ###   ########.fr       */
+/*   Created: 2026/02/08 15:20:48 by mjabarin          #+#    #+#             */
+/*   Updated: 2026/02/08 15:26:54 by mjabarin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "push_swap.h"
 
-void	sort_2(t_stack *a, t_config *config)
+void	print_stack(t_stack **stack)
 {
-	if (!a)
+	t_node	*current;
+
+	if (!stack || !*stack)
 		return ;
-	if (is_sorted(a))
-		return ;
-	else
-		sa (a, config);
+	current = (*stack)->top;
+	while (current)
+	{
+		printf("Value: %d, Index: %d\n", current->value, current->index);
+		current = current->next;
+	}
 }

@@ -6,14 +6,14 @@
 /*   By: mjabarin <mjabarin@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 13:32:06 by mjabarin          #+#    #+#             */
-/*   Updated: 2025/12/12 15:37:01 by mjabarin         ###   ########.fr       */
+/*   Updated: 2026/02/08 16:59:10 by mjabarin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
 long	ft_atoi(const char *nptr)
 {
-	int	sign;
+	int		sign;
 	long	num;
 	long	i;
 
@@ -38,9 +38,3 @@ long	ft_atoi(const char *nptr)
 	}
 	return (num * sign);
 }
-/*
-#include <stdio.h>
-
-int main(){
-	printf("%d",ft_atoi("59 6872"));
-}*/
