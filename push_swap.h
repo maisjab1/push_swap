@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nibrahee <nibrahee@learner.42.tech>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/02/08 14:53:59 by nibrahee          #+#    #+#             */
+/*   Updated: 2026/02/08 14:55:44 by nibrahee         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
@@ -74,7 +86,6 @@ void	rrr(t_stack *a, t_stack *b,t_config *config);
 
 void	checker(char **argv, int start_index);
 int	is_duplicate(char **argv, int start_index);
-long long	ft_atol(const char *nptr);
 void	radix_sort(t_stack *stack_a, t_stack *stack_b,t_config *config);
 int	is_sorted(t_stack *stack);
 void	sort_3(t_stack *stack, t_config *config);

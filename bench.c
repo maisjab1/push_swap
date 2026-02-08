@@ -1,34 +1,44 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   bench.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nibrahee <nibrahee@learner.42.tech>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/02/08 13:38:29 by nibrahee          #+#    #+#             */
+/*   Updated: 2026/02/08 14:03:41 by nibrahee         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-void	print_adaptive(t_config *config) 
+void	print_adaptive(t_config *config)
 {
-	 int	stat_indx;
-	 
-	 stat_indx = config -> stategy;
-	 ft_putstr_fd("[bench] strategy: ",2);
-	 ft_putstr_fd("Adaptive ", 2);
-	 if (stat_indx == 1)
-		 ft_putstr_fd (" O(n2))\n", 2);
-	 else if (stat_indx == 2)
-                 ft_putstr_fd ("O(n√n)\n", 2);
-	 else if (stat_indx == 3)
-                 ft_putstr_fd ("O(nlogn)\n", 2);
-
+	int	stat_indx;
+	
+	stat_indx = config -> stategy;
+	ft_putstr_fd("[bench] strategy: ",2);
+	ft_putstr_fd("Adaptive ", 2);
+	if (stat_indx == 1)
+		ft_putstr_fd (" O(n2))\n", 2);
+	else if (stat_indx == 2)
+		ft_putstr_fd ("O(n√n)\n", 2);
+	else if (stat_indx == 3)
+		ft_putstr_fd ("O(nlogn)\n", 2);
 }
 
-void    print_strategy(t_config *config)
+void	print_strategy(t_config *config)
 {
-         int    stat_indx;
+	int	stat_indx;
 
-         stat_indx = config -> stategy;
-         ft_putstr_fd("[bench] strategy: ",2);
-         if (stat_indx == 1)
-                 ft_putstr_fd ("Simple / O(n2))\n", 2);
-         else if (stat_indx == 2)
-                 ft_putstr_fd ("Medium /O(n√n)\n", 2);
-         else if (stat_indx == 3)
-                 ft_putstr_fd ("Complex /O(nlogn)\n", 2);
-
+	stat_indx = config -> stategy;
+	ft_putstr_fd("[bench] strategy: ", 2);
+	if (stat_indx == 1)
+		ft_putstr_fd ("Simple / O(n2))\n", 2);
+	else if (stat_indx == 2)
+		ft_putstr_fd ("Medium /O(n√n)\n", 2);
+	else if (stat_indx == 3)
+		ft_putstr_fd ("Complex /O(nlogn)\n", 2);
 }
 
 void	print_ops(t_config *config)
@@ -60,13 +70,13 @@ void	print_ops(t_config *config)
 	ft_putnbr_fd(config->ops_count.rrr, 2);
 	ft_putstr_fd("\n", 2);
 }
-void print_benchmarks(t_config *config,double disorder,int is_adap)
+void	print_benchmarks(t_config *config, double disorder, int is_adap)
 {
 	print_disorder(disorder);
-	if(is_adap == 1)
+	if (is_adap == 1)
 		print_adaptive(config);
 	else
-		 print_strategy(config);
+		print_strategy(config);
 	ft_putstr_fd("[bench] total_ops: ", 2);
 	ft_putnbr_fd(config -> ops_count.total, 2);
 	print_ops(config);
