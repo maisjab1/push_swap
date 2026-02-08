@@ -6,7 +6,7 @@
 /*   By: nibrahee <nibrahee@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/31 14:50:15 by nibrahee          #+#    #+#             */
-/*   Updated: 2026/02/07 20:37:19 by nibrahee         ###   ########.fr       */
+/*   Updated: 2026/02/08 15:55:56 by nibrahee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static int	reverse_rotate(t_stack *stack) // rotate stack a downwards
 {
 	t_node	*last;
 
-	if (!stack || !stack -> top ||stack -> size < 2)
+	if (!stack || !stack -> top || stack -> size < 2)
 		return (0);
 	last = stack -> top;
 	while (last -> next)
@@ -29,7 +29,7 @@ static int	reverse_rotate(t_stack *stack) // rotate stack a downwards
 	return (1);
 }
 
-void	rra(t_stack *a,t_config *config)
+void	rra(t_stack *a, t_config *config)
 {
 	if (reverse_rotate(a))
 	{
@@ -39,7 +39,7 @@ void	rra(t_stack *a,t_config *config)
 	}
 }
 
-void	rrb(t_stack *b,t_config *config)
+void	rrb(t_stack *b, t_config *config)
 {
 	if (reverse_rotate(b))
 	{
@@ -49,7 +49,7 @@ void	rrb(t_stack *b,t_config *config)
 	}
 }
 
-void	rrr(t_stack *a, t_stack *b,t_config *config)
+void	rrr(t_stack *a, t_stack *b, t_config *config)
 {
 	if (reverse_rotate(a) && reverse_rotate(b))
 	{

@@ -1,26 +1,39 @@
-#include "push_swap.h"
-int get_max(t_stack *stack)
-{
-    t_node *current;
-    int max;
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   radix.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nibrahee <nibrahee@learner.42.tech>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/02/08 16:30:59 by nibrahee          #+#    #+#             */
+/*   Updated: 2026/02/08 16:34:59 by nibrahee         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-    if (stack->size == 0)
-        return (0);
-    current = stack->top;
-    max = current->index;
-    while (current)
-    {
-        if (current->index > max)
-            max = current->index;
-        current = current->next;
-    }
+#include "push_swap.h"
+
+int	get_max(t_stack *stack)
+{
+	t_node	*current;
+	int		max;
+
+	if (stack -> size == 0)
+		return (0);
+	current = stack -> top;
+	max = current->index;
+	while (current)
+	{
+		if (current -> index > max)
+			max = current -> index;
+		current = current -> next;
+	}
     return (max);
 }
 
-void radix_sort(t_stack *stack_a, t_stack *stack_b,t_config *config)
+void	radix_sort(t_stack *stack_a, t_stack *stack_b, t_config *config)
 {
-    int i, j, size;
-    int max_bits;
+	int i, j, size;
+	int max_bits;
 
     size = stack_a->size;
     stack_b->top = NULL;
