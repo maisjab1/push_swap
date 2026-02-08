@@ -36,6 +36,8 @@ typedef struct	s_ops_count{
 typedef struct	s_config{
 	int		benchmark;
 	int		stategy;
+    int     disorder;
+    int     is_adaptive;
 	t_ops_count	ops_count;
 }		t_config;
 

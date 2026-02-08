@@ -67,21 +67,16 @@ void checker(char **argv, int start_index)
     {
         if (!ft_isnum(args[i]))
         {
-            ft_putendl_fd("Error", 1);
-            exit(1);
+            Error_and_exit();   
         }
         n = ft_atoi(args[i]);
         if (n >  2147483647 || n < -2147483648)
         {
-            ft_putendl_fd("Error", 1);
-            exit(1);
+            Error_and_exit();
         }
         i++;
     }
 
     if (is_duplicate(argv,start_index))
-    {
-        ft_putendl_fd("Error d", 1);
-        exit(1);
-    }
+        Error_and_exit();
 }
