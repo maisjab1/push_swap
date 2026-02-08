@@ -54,7 +54,7 @@ typedef struct s_config
 	t_ops_count	ops_count;
 }		t_config;
 
-t_stack	*create_stack(int argc, char **argv, int start_index);
+t_stack	*create_stack(int argc, char **argv);
 t_node	*create_node(int value);
 void	init_stack(t_stack *stack);
 int		push(t_stack *stack, t_node *node);
@@ -66,6 +66,7 @@ double	compute_disorder(t_stack *stack);
 void	print_disorder(double disorder);
 void	print_benchmarks(t_config *config, double disorder, int is_adap);
 void	free_stack(t_stack *stack);
+void	free_split(char **s);
 void	error_and_exit(void);
 
 /********************* operations ***************************/
@@ -84,7 +85,7 @@ void	rrr(t_stack *a, t_stack *b, t_config *config);
 
 /********************* utils ***************************/
 
-void	checker(char **argv, int start_index);
+char	**checker(char **argv, int start_index);
 int		is_duplicate(char **argv, int start_index);
 void	radix_sort(t_stack *stack_a, t_stack *stack_b, t_config *config);
 int		is_sorted(t_stack *stack);

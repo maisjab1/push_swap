@@ -6,7 +6,7 @@
 /*   By: mjabarin <mjabarin@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/12 15:52:07 by mjabarin          #+#    #+#             */
-/*   Updated: 2026/02/08 16:31:22 by mjabarin         ###   ########.fr       */
+/*   Updated: 2026/02/08 21:59:17 by mjabarin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -56,21 +56,32 @@ void	clean_exit(t_stack *stack_a, t_stack *stack_b, t_config *config)
 	free(config);
 	exit(1);
 }
+int count_args(char **args)
+{
+	int c;
 
+	c = 0;
+	while (args[c])
+		c++;
+	return (c);
+}
 int	main(int argc, char **argv)
 {
 	t_stack		*stack_a;
 	t_stack		*stack_b;
 	t_config	*config;
+	char		**args;
 	int			start_index;
 
 	if (argc < 2)
 		return (0);
+	
 	config = malloc(sizeof(t_config));
 	ft_memset(config, 0, sizeof(t_config));
 	start_index = parse_flags(argc, argv, config);
-	checker(argv, start_index);
-	stack_a = create_stack(argc, argv, start_index);
+	args = checker(argv, start_index);
+	argc = count_args(args);
+	stack_a = create_stack(argc, args);
 	stack_b = malloc(sizeof(t_stack));
 	if (!stack_b)
 		return (1);
@@ -81,6 +92,7 @@ int	main(int argc, char **argv)
 		run_sort(stack_a, stack_b, config);
 	if (config->benchmark)
 		print_benchmarks(config, config->disorder, config->is_adaptive);
+	 
 	clean_exit(stack_a, stack_b, config);
 	return (0);
 }
