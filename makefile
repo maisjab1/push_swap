@@ -13,10 +13,29 @@
 NAME = push_swap
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-INCLUDE = -I .
-SRCS = push.c op_swap.c op_rotate.c op_reverse_rotate.c \
-       bench.c checker.c disorder.c selection_sort.c is_sorted.c \
-       parse.c radix.c set_index.c sort_3.c sort_2.c stack_op.c stack.c free.c chunk_sorting.c chunk_sorting_utils.c error.c
+INCLUDE = -I include
+SRCS = operations/push.c \
+       operations/op_swap.c \
+       operations/op_rotate.c \
+       operations/op_reverse_rotate.c \
+       sort/radix.c \
+       sort/selection_sort.c \
+       sort/sort_2.c \
+       sort/sort_3.c \
+       sort/chunk_sorting.c \
+       sort/chunk_sorting_utils.c \
+       utils/error.c \
+       utils/free.c \
+       utils/is_sorted.c \
+       utils/print_stack.c \
+       utils/set_index.c \
+       utils/parse.c \
+       utils/checker.c \
+       utils/disorder.c \
+       utils/bench.c \
+       main/main.c \
+       utils/stack.c
+
 
 OBJS = $(SRCS:.c=.o)
 

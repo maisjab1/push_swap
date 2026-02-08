@@ -9,7 +9,6 @@
 /*   Updated: 2026/02/08 16:40:12 by mjabarin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "push_swap.h"
 
 void	sort_3(t_stack *stack, t_config *config)
@@ -26,7 +25,7 @@ void	sort_3(t_stack *stack, t_config *config)
 	else if (a > b && b > c)
 	{
 		sa(stack, config);
-		rra(stack, config);		
+		rra(stack, config);
 	}
 	else if (a > b && b < c && a > c)
 		ra (stack, config);

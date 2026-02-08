@@ -20,7 +20,7 @@ void	print_stack(t_stack **stack)
 	current = (*stack)->top;
 	while (current)
 	{
-		printf("Value: %d, Index: %d\n", current->value, current->index);
+		ft_printf("Value: %d, Index: %d\n", current->value, current->index);
 		current = current->next;
 	}
 }

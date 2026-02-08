@@ -42,9 +42,7 @@ int	parse_flags(int argc, char **argv, t_config *config)
 			break ;
 		if (argv[i][0] == '-' && ft_isdigit(argv[i][1]))
 			break ;
-		if (ft_compare(argv[i], config))
-			i++;
-		else
+		if (!ft_compare(argv[i], config))
 			error_and_exit();
 		i++;
 	}
