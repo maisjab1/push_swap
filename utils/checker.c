@@ -9,7 +9,6 @@
 /*   Updated: 2026/02/08 16:26:49 by nibrahee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "push_swap.h"
 
 int	is_duplicate(char **argv, int start_index)
@@ -66,15 +65,26 @@ void	free_split(char **s)
 	}
 	free(s);
 }
-
-void	checker(char **argv, int start_index)
+char **skip_flags(char **args, int start_index)
+{
+    return (&args[start_index]);
+}
+char	**checker(char **argv, int start_index)
 {
 	int			i;
+	int 		split;
 	long long	n;
 	char		**args;
 
+	split = 0;
 	i = start_index;
 	args = argv;
+	if (ft_strchr(argv[start_index], ' '))
+	{
+		args = ft_split(argv[start_index], ' ');
+		i = 0;
+		split = 1;
+	}
 	while (args[i])
 	{
 		if (!ft_isnum(args[i]))
@@ -84,6 +94,9 @@ void	checker(char **argv, int start_index)
 			error_and_exit();
 		i++;
 	}
-	if (is_duplicate(argv, start_index))
+	if (is_duplicate(args, split ? 0 : start_index))
 		error_and_exit();
+	if (!split)
+		args = skip_flags(argv, start_index);
+	return (args);
 }
