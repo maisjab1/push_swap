@@ -12,8 +12,16 @@
 
 #include "push_swap.h"
 
-static void	push_chunks(t_stack *a, t_stack *b
-		, int chunk_size, t_config *config)
+static void	rotate_a(t_stack *a, int pos, t_config *config)
+{
+	if (pos <= a->size / 2)
+		ra(a, config);
+	else
+		rra(a, config);
+}
+
+static void	push_chunks(t_stack *a, t_stack *b,
+		int chunk_size, t_config *config)
 {
 	int	i;
 	int	pos;
@@ -22,22 +30,21 @@ static void	push_chunks(t_stack *a, t_stack *b
 	while (a -> size > 0)
 	{
 		if (a -> top -> index <= i)
+		{
 			pb(b, a, config);
+			i++;
+		}
 		else if (a -> top -> index <= i + chunk_size)
 		{
 			pb(b, a, config);
 			rb(b, config);
+			i++;
 		}
 		else
 		{
 			pos = find_pos(a, i);
-			if (pos <= (a -> size) / 2)
-				ra(a, config);
-			else
-				rra(a, config);
+			rotate_a(a, pos, config);
 		}
-		if (a -> top -> index <= i || a -> top -> index <= i + chunk_size)
-			i++;
 	}
 }
 

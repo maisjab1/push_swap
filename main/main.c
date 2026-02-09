@@ -1,14 +1,4 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: mjabarin <mjabarin@learner.42.tech>        +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/12 15:52:07 by mjabarin          #+#    #+#             */
-/*   Updated: 2026/02/08 21:59:17 by mjabarin         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	decide_strategy(t_config *config)
@@ -56,15 +46,7 @@ void	clean_exit(t_stack *stack_a, t_stack *stack_b, t_config *config)
 	free(config);
 	exit(1);
 }
-int count_args(char **args)
-{
-	int c;
 
-	c = 0;
-	while (args[c])
-		c++;
-	return (c);
-}
 int	main(int argc, char **argv)
 {
 	t_stack		*stack_a;
@@ -75,7 +57,6 @@ int	main(int argc, char **argv)
 
 	if (argc < 2)
 		return (0);
-	
 	config = malloc(sizeof(t_config));
 	ft_memset(config, 0, sizeof(t_config));
 	start_index = parse_flags(argc, argv, config);
@@ -92,7 +73,5 @@ int	main(int argc, char **argv)
 		run_sort(stack_a, stack_b, config);
 	if (config->benchmark)
 		print_benchmarks(config, config->disorder, config->is_adaptive);
-	 
 	clean_exit(stack_a, stack_b, config);
-	return (0);
 }

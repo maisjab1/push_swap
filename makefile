@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 NAME = push_swap
-CC = cc
+CC = gcc -g
 CFLAGS = -Wall -Wextra -Werror
 INCLUDE = -I include
 SRCS = operations/push.c \
@@ -33,6 +33,8 @@ SRCS = operations/push.c \
        utils/checker.c \
        utils/disorder.c \
        utils/bench.c \
+       utils/count_arg.c \
+       utils/checker2.c \
        main/main.c \
        utils/stack.c
 
