@@ -68,6 +68,10 @@ void	print_benchmarks(t_config *config, double disorder, int is_adap);
 void	free_stack(t_stack *stack);
 void	free_split(char **s);
 void	error_and_exit(void);
+char	**handle_split(char **argv, int start_index, int *split);
+int		count_args(char **args);
+void	validate_args(char **args);
+int		ft_isnum(char *num);
 
 /********************* operations ***************************/
 

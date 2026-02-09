@@ -1,5 +1,5 @@
 /* ************************************************************************** */
-/*                                                                            */
+/*                     	                                               	      */
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
@@ -65,36 +65,30 @@ void	free_split(char **s)
 	}
 	free(s);
 }
-char **skip_flags(char **args, int start_index)
+
+char	**skip_flags(char **args, int start_index)
 {
-    return (&args[start_index]);
+	return (&args[start_index]);
 }
+
 char	**checker(char **argv, int start_index)
 {
-	int			i;
-	int 		split;
-	long long	n;
-	char		**args;
+	char	**args;
+	char	**to_validate;
+	int		split;
+	int		dup_index;
 
-	split = 0;
-	i = start_index;
-	args = argv;
-	if (ft_strchr(argv[start_index], ' '))
-	{
-		args = ft_split(argv[start_index], ' ');
-		i = 0;
-		split = 1;
-	}
-	while (args[i])
-	{
-		if (!ft_isnum(args[i]))
-			error_and_exit();
-		n = ft_atoi(args[i]);
-		if (n > 2147483647 || n < -2147483648)
-			error_and_exit();
-		i++;
-	}
-	if (is_duplicate(args, split ? 0 : start_index))
+	args = handle_split(argv, start_index, &split);
+	if (split)
+		to_validate = args;
+	else
+		to_validate = &argv[start_index];
+	validate_args(to_validate);
+	if (split)
+		dup_index = 0;
+	else
+		dup_index = start_index;
+	if (is_duplicate(args, dup_index))
 		error_and_exit();
 	if (!split)
 		args = skip_flags(argv, start_index);
