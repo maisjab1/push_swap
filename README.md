@@ -57,7 +57,7 @@ cd push_swap
 make
 
 ```
-2. ##Execution
+2. ## Execution
 
 Pass a list of integers as arguments. The program will output the shortest list of instructions to sort them.
 
