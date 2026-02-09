@@ -1,4 +1,4 @@
-*This activity has been created as part of the 42 curriculum by nibrahee, mjabarin.
+*This activity has been created as part of the 42 curriculum by nibrahee, mjabarin*
 
 # Push_Swap
 
