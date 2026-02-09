@@ -1,4 +1,4 @@
-*This activity has been created as part of the 42 curriculum by nibrahee, mjabarin.
+*This activity has been created as part of the 42 curriculum by nibrahee, mjabarin.*
 
 # Push_Swap
 
@@ -91,4 +91,4 @@ ARG="4 67 3 1 9"; ./push_swap $ARG | ./checker_os $ARG
 
 ## Group project contributions
 - nibrahee: stack implementation, operations, selections sort, chunk sort and norminette.
-- mjabarin: input validation, bench and flags, radix sort, indexing and makefile. 
+- mjabarin: input validation, bench and flags, radix sort, indexing and makefile.
