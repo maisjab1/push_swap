@@ -1,4 +1,4 @@
-*This activity has been created as part of the 42 curriculum by nibrahee, mjabarin*
+*This activity has been created as part of the 42 curriculum by nibrahee, mjabarin.*
 
 # Push_Swap
 
@@ -43,7 +43,8 @@ Only specific operations are allowed.
 The program uses 3 algorithms to sort the input:
 * **Simple strategy** : Selection sort, takes $`O(n^2)`$ time complexity.
 * **Medium strategy** : Chunk_Based sort, takes $`O(n \sqrt{n})`$ time complexity.
-* **Complex strategy** : Radix sort, takes $`O(n \log n)`$ time complexity. 
+* **Complex strategy** : Radix sort, takes $`O(n \log n)`$ time complexity.
+
 ## Instructions
 
 1. ### Compilation
@@ -52,7 +53,7 @@ Clone the repository and run `make`:
 
 ```bash
 
-git clone https://github.com/noormigdady/push_swap.git
+git clone https://github.com/42learners/Common-Core---Push_Swap-8c6edf21-8540-46d3-b554-40418f0dd4d5.git
 cd push_swap
 make
 

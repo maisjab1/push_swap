@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nibrahee <nibrahee@learner.42.tech>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/02/10 12:43:21 by nibrahee          #+#    #+#             */
+/*   Updated: 2026/02/10 13:08:36 by nibrahee         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "push_swap.h"
 
@@ -31,7 +42,13 @@ void	set_strategy(t_config *config, t_stack *stack_a)
 
 void	run_sort(t_stack *stack_a, t_stack *stack_b, t_config *config)
 {
-	if (config->stategy == 1)
+	if (stack_a -> size == 2)
+		sort_2(stack_a, config);
+	else if (stack_a -> size == 3)
+		sort_3(stack_a, config);
+	else if (stack_a -> size == 4 || stack_a -> size == 5)
+		selection_sort(stack_a, stack_b, config);
+	else if (config->stategy == 1)
 		selection_sort(stack_a, stack_b, config);
 	else if (config->stategy == 2)
 		chunk_sort(stack_a, stack_b, config);

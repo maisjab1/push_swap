@@ -6,12 +6,12 @@
 #    By: nibrahee <nibrahee@learner.42.tech>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/08 15:54:09 by nibrahee          #+#    #+#              #
-#    Updated: 2026/02/08 16:25:40 by nibrahee         ###   ########.fr        #
+#    Updated: 2026/02/10 14:27:16 by nibrahee         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
-CC = gcc -g
+CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 INCLUDE = -I include
 SRCS = operations/push.c \
